@@ -9,19 +9,19 @@ import service from './services/menuService';
 
 
 const App = (props) => {
-  let { categories, getMenuItemsForACategory, items } = props;
+  let { categories, getMenuItemsForACategory, items, shortName } = props;
 
   return (
     <div className="">
       <Heading name="Menu Categories" />
       <div className="categories">
-      <List categories={categories} getMenuItemsForACategory={getMenuItemsForACategory} />
+        <List categories={categories} getMenuItemsForACategory={getMenuItemsForACategory} />
       </div>
-      
-      <div className="category-items">
-        <Heading name="Items in Category: (VG)" />
+      {shortName.length ? <div className="category-items">
+        <Heading name={`Items in Category: (${shortName})`} />
         <Table items={items} />
-      </div>
+      </div> : null }
+      
     </div>
   );
 }
@@ -35,7 +35,8 @@ export default class Application extends Component {
     super(props);
     this.state = {
       categories: [],
-      items: []
+      items: [], 
+      shortName: ''
     }
     me = this;
   }
@@ -47,8 +48,9 @@ export default class Application extends Component {
   getMenuItemsForACategory(category) {
     
     service.getCategoryItems(category).then(items => {
-      me.setState({ items });
+      me.setState({ items, shortName: category });
     });
+
   }
 
   componentDidMount () {

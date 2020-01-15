@@ -18,7 +18,7 @@ const TableBody = ({ items }) => {
 }
 
 const ItemsTable = ({ items }) => {
-    return <table>
+    return <table className="table">
         <tr>
             <th>Name</th>
             <th>Description</th>
