@@ -51,7 +51,7 @@ li:hover {
 
 .table {
   border-collapse: collapse;
-  width: 100%;
+  margin-left: 20px;
 }
 
 .table td, .table th {
@@ -70,5 +70,9 @@ li:hover {
 .table th {
   text-align: left;
   padding: 12px 0px;
+}
+
+.container {
+  display: flex;
 }
 

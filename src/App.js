@@ -14,13 +14,15 @@ const App = (props) => {
   return (
     <div className="">
       <Heading name="Menu Categories" />
-      <div className="categories">
-        <List categories={categories} getMenuItemsForACategory={getMenuItemsForACategory} />
+      <div className="container">
+        <div className="categories">
+          <List categories={categories} getMenuItemsForACategory={getMenuItemsForACategory} />
+        </div>
+        {shortName.length ? <div className="category-items">
+          <Heading name={`Items in Category: (${shortName})`} />
+          <Table items={items} />
+        </div> : null }
       </div>
-      {shortName.length ? <div className="category-items">
-        <Heading name={`Items in Category: (${shortName})`} />
-        <Table items={items} />
-      </div> : null }
       
     </div>
   );
