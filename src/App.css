@@ -41,6 +41,14 @@
   float: right;
 }
 
+li:hover {
+  display: inline-block;
+  cursor: pointer;
+  border: solid black 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .table {
   border-collapse: collapse;
   width: 100%;
